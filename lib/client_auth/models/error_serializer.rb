@@ -10,6 +10,8 @@ module ClientAuth
       attrs = JSON.parse(data)['errors'].first
       klass = attrs['title'].constantize
       klass.new(attrs['status'], attrs['detail'])
+    rescue StandardError
+      ::ClientAuth::Errors::InternalServerError.new(data)
     end
   end
 end
