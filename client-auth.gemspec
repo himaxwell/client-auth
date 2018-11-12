@@ -6,8 +6,8 @@ require 'client_auth/version'
 Gem::Specification.new do |spec|
   spec.name          = 'client-auth'
   spec.version       = ClientAuth::VERSION
-  spec.authors       = ['Yuriy Lavryk']
-  spec.email         = ['yuriy@getmatic.com']
+  spec.authors       = ['Yuriy Lavryk', 'Xavier Hocquet']
+  spec.email         = ['yuriy@getmatic.com', 'xavier@himaxwell.com']
 
   spec.summary       = 'Authentication client'
   spec.description   = 'Authentication for matic clients'

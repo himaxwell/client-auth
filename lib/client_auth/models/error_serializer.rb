@@ -7,7 +7,11 @@ module ClientAuth
     end
 
     def self.deserialize(data)
-      attrs = JSON.parse(data)['errors'].first
+      parsed_errors = JSON.parse(data)['errors']
+
+      return ::ClientAuth::Errors::InternalServerError.new(data) if parsed_errors.nil?
+
+      attrs = parsed_errors.first
       klass = attrs['title'].constantize
       klass.new(attrs['status'], attrs['detail'])
     rescue StandardError
